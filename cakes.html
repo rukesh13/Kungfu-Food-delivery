@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cakes Menu</title>
+  <style>
+    /* CSS styles go here */
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-container {
+      background-image: url('v11.jpg'); /* Replace 'header_background.jpg' with your image path */
+      background-size: cover;
+      border-radius: 20px;
+      padding: 80px;
+      text-align: center;
+      color:white;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .caption {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .menu-title {
+      background-image: url('ck12.png'); /* Replace 'menu_background.jpg' with your image path */
+      background-size: cover;
+      border-radius: 20px;
+      padding: 120px;
+      text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 50px;
+      color:white;
+    }
+
+    .food-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .food-item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .food-item img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .food-item h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .food-item p {
+      margin: 5px 0;
+      color: #888;
+    }
+
+    .food-item button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .food-item button:hover {
+      background-color: green;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="container">
+        <h1>Kungfu Food Delivery</h1>
+        <p class="caption">Your ultimate destination for delicious food!</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="menu-title">
+        <h2>CAKES</h2>
+      </div>
+      <div class="food-items">
+        <div class="food-item">
+          <img src="Black Forest Cheesecake.jpeg.jpg" alt="Cake 1">
+          <h3>Black Forest Cheesecake </h3>
+          <p>Rs.120</p>
+          <button onclick="addToCart('Black Forest Cheesecake', 120, 'Black Forest Cheesecake.jpeg.jpg')">Add to Cart</button>
+        </div>
+        <div class="food-item">
+          <img src="chocolate cake.jpeg.jpg" alt="Cake 2">
+          <h3>Chocolate Cake</h3>
+          <p>Rs.140</p>
+          <button onclick="addToCart('Chocolate Cake', 140, 'chocolate cake.jpeg.jpg')">Add to Cart</button>
+        </div>
+        <div class="food-item">
+          <img src="caramel cake.jpeg.jpg" alt="Cake 3">
+          <h3>Caramel Cake</h3>
+          <p>Rs.130</p>
+          <button onclick="addToCart('Caramel Cake', 130, 'caramel cake.jpeg.jpg')">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="Raspberry Cheesecake.jpeg.jpg" alt="Cake 4">
+            <h3>Raspberry Cheesecake</h3>
+            <p>Rs.150</p>
+            <button onclick="addToCart('Raspberry Cheesecake', 150, 'Raspberry Cheesecake.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="blackcurrent cake.jpeg.jpg" alt="Cake 5">
+            <h3>Blackcurrent Cake</h3>
+            <p>Rs.110</p>
+            <button onclick="addToCart('Blackcurrent Cake', 110, 'blackcurrent cake.jpeg.jpg')">Add to Cart</button>
+          </div>
+     
+        <!-- Add more food items here -->
+        <!-- Ensure a total of 7 food items for Dosa -->
+      </div>
+    </div>
+  </main>
+  <script>
+    function addToCart(productName, price, image) {
+        // Check if cart exists in session storage
+        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    
+        // Add item to cart
+        cart.push({ name: productName, price: price, image: image });
+    
+        // Update cart in session storage
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    
+        // Alert user that item has been added to cart (you can replace this with a more user-friendly notification)
+        alert(productName + ' added to cart');
+    }
+    </script>
+</body>
+</html>

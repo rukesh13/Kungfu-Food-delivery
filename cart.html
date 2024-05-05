@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('ct.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .cart-container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .cart-items {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 10px;
+  }
+
+  .cart-item-info {
+    flex-grow: 1;
+  }
+
+  .cart-total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .make-payment-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .make-payment-btn:hover {
+    background-color: green;
+  }
+</style>
+</head>
+<body>
+<div class="cart-container">
+  <div class="cart-title">CART</div>
+  <div class="cart-items" id="cart-items">
+    <!-- Cart items will be dynamically added here -->
+  </div>
+  <div class="cart-total" id="cart-total">
+    <!-- Total price will be dynamically added here -->
+  </div>
+  <a href="payment.html" class="make-payment-btn">Make Payment</a>
+</div>
+
+<script>
+    // Retrieve cart items from session storage
+    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    
+    // Display cart items
+    let cartItemsDiv = document.getElementById('cart-items');
+    renderCartItems();
+    
+    function renderCartItems() {
+      cartItemsDiv.innerHTML = '';
+      cart.forEach((item, index) => {
+        // Set default quantity to 1 if not defined
+        if (!item.quantity) {
+          item.quantity = 1;
+        }
+        cartItemsDiv.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+              <h3>${item.name}</h3>
+              <p>Rs.${item.price}</p>
+              <div>
+                <button onclick="decreaseQuantity(${index})">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="increaseQuantity(${index})">+</button>
+                <button onclick="removeItem(${index})">Remove</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      // Calculate and display total price
+      let totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      document.getElementById('cart-total').innerHTML = `Total Price: Rs.${totalPrice.toFixed(2)}`;
+    }
+    
+    // Function to remove item from cart
+    function removeItem(index) {
+      cart.splice(index, 1);
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      renderCartItems();
+    }
+    
+    // Function to increase quantity of item
+    function increaseQuantity(index) {
+      cart[index].quantity++;
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      renderCartItems();
+    }
+    
+    // Function to decrease quantity of item
+    function decreaseQuantity(index) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        renderCartItems();
+      }
+    }
+    </script>
+    </body>
+    </html>
+</body>
+</html>

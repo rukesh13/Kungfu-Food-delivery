@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('py.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This ensures that the background image remains fixed as the user scrolls */
+}
+
+
+  .payment-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .payment-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+
+  .upi-details,
+  .card-details {
+    display: none;
+  }
+
+  .place-order-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .place-order-btn:hover {
+    background-color: green;
+  }
+</style>
+</head>
+<body>
+<div class="payment-container">
+  <div class="payment-title">Payment</div>
+  <form id="payment-form">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="paymentMethod">Payment Method</label>
+      <select id="paymentMethod" name="paymentMethod" onchange="togglePaymentDetails()">
+        <option value="" disabled selected>Select Payment Method</option>
+        <option value="upi">UPI</option>
+        <option value="card">Credit/Debit Card</option>
+      </select>
+    </div>
+    <div class="form-group upi-details" id="upiDetails">
+      <label for="upiId">UPI ID</label>
+      <input type="text" id="upiId" name="upiId">
+    </div>
+    <div class="form-group card-details" id="cardDetails">
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" name="cardNumber">
+      <label for="nameOnCard">Name on Card</label>
+      <input type="text" id="nameOnCard" name="nameOnCard">
+      <label for="cardExpiry">Card Expiry (MM/YYYY)</label>
+      <input type="text" id="cardExpiry" name="cardExpiry">
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv">
+    </div>
+    <button type="submit" class="place-order-btn">Place Order</button>
+  </form>
+</div>
+
+<script>
+function togglePaymentDetails() {
+  var paymentMethod = document.getElementById("paymentMethod").value;
+  var upiDetails = document.getElementById("upiDetails");
+  var cardDetails = document.getElementById("cardDetails");
+
+  if (paymentMethod === "upi") {
+    upiDetails.style.display = "block";
+    cardDetails.style.display = "none";
+  } else if (paymentMethod === "card") {
+    upiDetails.style.display = "none";
+    cardDetails.style.display = "block";
+  } else {
+    upiDetails.style.display = "none";
+    cardDetails.style.display = "none";
+  }
+}
+
+document.getElementById("payment-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("Order placed. Thank you!");
+});
+</script>
+</body>
+</html>

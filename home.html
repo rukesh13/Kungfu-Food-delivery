@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kungfu Food Delivery</title>
+  <style>
+    /* CSS styles go here */
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-container {
+      background-image: url("h2.jpg"); /* Replace 'header_background.jpg' with your image path */
+      font-family: 'Times New Roman', Times, serif;
+      background-size: cover;
+      border-radius: 20px;
+      padding: 200px;
+      text-align: center;
+      color: rgb(246, 241, 241);
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 70px;
+      margin: 0;
+    }
+
+    .caption {
+      font-size: 30px;
+      margin-top: 10px;
+    }
+
+    .menu {
+      background-color: #fff;
+      padding: 20px 0;
+      
+    }
+    .menu h2,
+    .popular-items h2 {
+      text-align: center;
+      font-size: 40px;
+    
+    }
+
+    .menu-categories {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    .category {
+      text-align: center;
+      margin-right: 20px;
+      transition: transform 0.2s; /* Add transition for smooth animation */
+    }
+
+    .category:hover {
+      transform: scale(1.1); /* Scale up the item on hover */
+    }
+
+
+    .category a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .category img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .popular-items {
+      background-color: #f8f8f8;
+      padding: 20px 0;
+    }
+
+    .popular-items .food-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .popular-items .food-item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #ffd700;
+      padding: 20px 0;
+      text-align: center;
+      padding: 20px 0;
+    }
+    footer h3 {
+      font-weight: bold;
+      color: black;
+      font-size: 40px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      width: 100%; /* Set the width of the search bar to 50% */
+    }
+
+    .search-bar input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }  
+    
+    .food-item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .food-item img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .food-item h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .food-item p {
+      margin: 5px 0;
+      color: #888;
+    }
+
+    .food-item button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .food-item button:hover {
+      background-color: darkgreen;
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      margin-left: auto; /* Move icons to the right */
+    }
+
+    .icons a {
+      margin-left: 10px; /* Add margin between icons */
+    }
+
+    .icons img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="container">
+        <h1>Kungfu Food Delivery</h1>
+        <p class="caption">Your ultimate destination for delicious food!</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="menu">
+      <div class="container">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search for food items...">
+          <div class="icons">
+            <a href="cart.html"><img src="cart.jpg" alt="My Cart"></a>
+            <a href="up.html"><img src="icon1.jpg" alt="Profile"></a>
+          </div>
+        </div>
+     
+        <h2>MENU</h2>
+        
+        <div class="menu-categories">
+          <div class="category">
+            <a href="Dosa.html">
+              <img src="DOSA.jpeg.jpg" alt="Dosa">
+              <div>Dosa</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="IDLY.html">
+              <img src="IDLY.jpeg.jpg" alt="Idli">
+              <div>Idli</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="samosa.html">
+              <img src="SAMOSA.jpeg.jpg" alt="Samosa">
+              <div>Samosa</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="Pongal.html">
+              <img src="PONGAL.jpeg.jpg" alt="Pongal">
+              <div>Pongal</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="Biryani.html">
+              <img src="BRIYANI ....jpeg.jpg" alt="Biryani">
+              <div>Biryani</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="Vada.html">
+              <img src="VADA.jpeg.jpg" alt="Vada">
+              <div>Vada</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="Uthappam.html">
+              <img src="UTHAPPAM.jpeg.jpg" alt="Uthappam">
+              <div>Uthappam</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="meals.html">
+              <img src="MEALS.jpeg.jpg" alt="Meals">
+              <div>Meals</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="Milkshakes.html">
+              <img src="MILKSHAKES.jpeg.jpg" alt="Milkshake">
+              <div>Milkshake</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="cakes.html">
+              <img src="CAKES.jpeg.jpg" alt="Cake">
+              <div>Cake</div>
+            </a>
+          </div>
+          <div class="category">
+            <a href="Lollypops.html">
+              <img src="LOLLYPOPS.jpeg.jpg" alt="Lollipops">
+              <div>Lollipops</div>
+            </a>
+          </div>
+          <!-- Add more categories here -->
+        </div>
+      </div>
+    </section>
+    <section class="popular-items">
+      <div class="container">
+        <h2>WHAT'S IN YOUR MIND ?</h2>
+        <div class="food-items">
+          <!-- Add popular food items here -->
+          <div class="food-item">
+            <img src="masala dosa.jpeg.jpg" alt="Food 1">
+            <h3>Masala Dosa</h3>
+            <p>Rs.140</p>
+            <button onclick="addToCart('Masala Dosa', 140, 'masala dosa.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="onion dosa.jpeg.jpg" alt="Food 2">
+            <h3>Onion Dosa</h3>
+            <p>Rs.100</p>
+            <button onclick="addToCart('Onion Dosa', 100, 'onion dosa.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="chicken biryani.jpeg.jpg" alt="Food 3">
+            <h3>Chicken Biryani</h3>
+            <p>Rs.250</p>
+            <button onclick="addToCart('Chicken Biryani', 250, 'chicken biryani.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="mutton biryani.jpeg.jpg" alt="Food 4">
+            <h3>Mutton Biryani</h3>
+            <p>Rs.350</p>
+            <button onclick="addToCart('Mutton Biryani', 350, 'mutton biryani.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="fish biryani.jpeg.jpg" alt="Food 5">
+            <h3>Fish Biryani</h3>
+            <p>Rs.300</p>
+            <button onclick="addToCart('Fish Biryani', 300, 'fish biryani.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="special combo.jpeg.jpg" alt="Food 6">
+            <h3>Veg Combo</h3>
+            <p>Rs.500</p>
+            <button onclick="addToCart('Veg Combo', 500, 'special combo.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="mini meals.jpeg.jpg" alt="Food 7">
+            <h3>Mini Meals</h3>
+            <p>Rs.200</p>
+            <button onclick="addToCart('Mini Meals', 200, 'mini meals.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="rose milk.jpeg.jpg" alt="Food 8">
+            <h3>Rose Milk</h3>
+            <p>Rs.50</p>
+            <button onclick="addToCart('Rose Milk', 50, 'rose milk.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="chocolate milkshake.jpeg.jpg" alt="Food 9">
+            <h3>Chocolate Milkshake</h3>
+            <p>Rs.100</p>
+            <button onclick="addToCart('Chocolate Milkshake', 100, 'chocolate milkshake.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="Black Forest Cheesecake.jpeg.jpg" alt="Food 10">
+            <h3>Black Forest</h3>
+            <p>Rs.60</p>
+            <button onclick="addToCart('Black Forest', 60, 'chocolate milkshake.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="oreo milkshake.jpeg.jpg" alt="Food 11">
+            <h3>Oreo Milkshake</h3>
+            <p>Rs.120</p>
+            <button onclick="addToCart('Oreo Milkshake', 120, 'oreo milkshake.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <div class="food-item">
+            <img src="dryfruit milkshake.jpeg.jpg" alt="Food 12">
+            <h3>Dryfruit MIlkshake</h3>
+            <p>Rs.140</p>
+            <button onclick="addToCart('Dryfruit Milkshake', 140, 'dryfruit milkshake.jpeg.jpg')">Add to Cart</button>
+          </div>
+          <!-- Add more food items here -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    function addToCart(productName, price, image) {
+        // Check if cart exists in session storage
+        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    
+        // Add item to cart
+        cart.push({ name: productName, price: price, image: image });
+    
+        // Update cart in session storage
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    
+        // Alert user that item has been added to cart (you can replace this with a more user-friendly notification)
+        alert(productName + ' added to cart');
+    }
+    function search() {
+    // Get the search query from the input field
+    var query = document.getElementById("searchInput").value.toLowerCase();
+
+    // Get all food items
+    var foodItems = document.getElementsByClassName("food-item");
+
+    // Loop through each food item to check if it matches the search query
+    for (var i = 0; i < foodItems.length; i++) {
+      var itemName = foodItems[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+      if (itemName.includes(query)) {
+        // If the item matches the search query, display it
+        foodItems[i].style.display = "block";
+      } else {
+        // If the item does not match the search query, hide it
+        foodItems[i].style.display = "none";
+      }
+    }
+  }
+
+  // Attach an event listener to the search input field to trigger the search function
+  document.getElementById("searchInput").addEventListener("input", search);
+    </script>
+    
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Kungfu Food Delivery. All rights reserved.</p>
+      <p>Contact us at: info@kungfufooddelivery.com</p>
+      <h3>THANK YOU, VISIT AGAIN !!!</h3>
+    </div>
+  </footer>
+</body>
+</html>
